@@ -25,6 +25,10 @@ class FoundItemForm extends React.Component{
           </Link>
           </h1>
         </div>
+        <div className="form-group ">
+          <label for="inputEmail3">Title</label>
+            <input type="text" className="form-control" placeholder="Description" ></input>
+        </div>
         <div className="form-group">
           <label for="inputState">TYPE</label>
           <select id="inputState" className="form-control">
