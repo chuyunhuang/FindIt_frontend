@@ -10,6 +10,8 @@ import LostItemForm from './Container/LostItemForm';
 import ItemMatch from './Container/itemMatch';
 import ClaimAction from './Component/claimAction';
 import PickUp from './Container/pickUp';
+import FedExHub from './Container/HubLocation';
+import FounderHistory from './Container/FounderHistory';
 
 
 class App extends React.Component {
@@ -38,6 +40,8 @@ class App extends React.Component {
       <Route path= "/itemmatch" exact strict component ={ItemMatch} />
       <Route path= "/claimPage" exact strict component ={ClaimAction} />
       <Route path= "/pickup" exact strict component={PickUp} />
+      <Route path= "/fedexhub" exact strict component={FedExHub} />
+      <Route path="/founderhistory" exact strict component={FounderHistory} />
       </itemcontext.Provider>
       </item.Provider>
       </Switch>
