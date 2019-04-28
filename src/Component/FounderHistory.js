@@ -10,10 +10,10 @@ const FounderHistory = (props) =>{
         
         return history.data.msg.map((e, i)=>{
             return (<>
-                 <div class="w-100"></div>
-                <div class="col">{e.title}</div>
-                <div class="col">{e.date}</div>
-                <div class="col">{e.status}</div>
+                 <div className="w-100" key={i} ></div>
+                <div className="col">{e.title}</div>
+                <div className="col">{e.date}</div>
+                <div className="col">{e.status}</div>
                 </>
             )
         })

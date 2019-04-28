@@ -31,12 +31,12 @@ class FounderHistory extends React.Component{
 
     render(){
         const {data} = this.state
-        return(<div class="container">
+        return(<div className="container">
         <h1>Founder History</h1>
-        <div class="row">
-        <div class="col"><h3>Title</h3></div>
-        <div class="col"><h3>Date Posted</h3></div>
-        <div class="col"><h3>Status</h3></div>
+        <div className="row">
+        <div className="col"><h3>Title</h3></div>
+        <div className="col"><h3>Date Posted</h3></div>
+        <div className="col"><h3>Status</h3></div>
         <History data={data}/>
         </div>
       </div>)
