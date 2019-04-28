@@ -13,8 +13,10 @@ const Home = (props) => {
    
     <div>
       <div>
+      <Link to="/founderhistory" className="left" style={{paddingRight: '10px', paddingTop: '20px'}}>
         <img src={logo} alt="logo" className="rounded mx-auto d-block"
         style={{width: '500px', padding: '20px'}} /> 
+        </Link>
       </div>
 
       <div style={{textAlign:'center', fontStyle: 'italic'}}>
