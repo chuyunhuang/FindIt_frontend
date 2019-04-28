@@ -110,7 +110,8 @@ class LostItemForm extends React.Component {
             <Link to="/">
           <img src={Logo} className="img-thumbnail float-right" style={{width:'100px'}} alt=""/>
           </Link>
-          </h1>    
+          </h1> 
+          <p>Please complete below input to match our founder </p>   
         </div>
         <div className="form-group">
           <label>TYPE</label>
