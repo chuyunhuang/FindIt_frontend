@@ -5,6 +5,19 @@ import Img from '../Component/Image/boy.jpg';
 import Logo from '../Component/Image/findIt.jpg';
 import axios from 'axios';
 
+import * as firebase from 'firebase';
+import ImageService from '../Service/image';
+
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyDZHk3FdTSPRn1uOF7C9aNGAiGoop96c-0",
+  authDomain: "findit-cd54e.firebaseapp.com",
+  databaseURL: "https://findit-cd54e.firebaseio.com",
+  projectId: "findit-cd54e",
+  storageBucket: "findit-cd54e.appspot.com",
+  messagingSenderId: "801673346676"
+};
+firebase.initializeApp(config);
 
 class FoundItemForm extends React.Component{
   constructor(props){
@@ -15,7 +28,8 @@ class FoundItemForm extends React.Component{
       color: [],
       location: '',
       date: '', 
-    }
+      image_url: '' 
+      }
   }
 
   componentDidMount(){
@@ -57,12 +71,34 @@ class FoundItemForm extends React.Component{
     })
   }
 
+  saveImage = (url) => {
+    const date = Date()
+    ImageService.saveImage(url, date)
+  }
+
+  handleFileInput = (e) => {
+    const firstFile = e.target.files[0]
+    const root = firebase.storage().ref()
+    const newImage = root.child(firstFile.name)
+
+    newImage.put(firstFile)
+      .then((snapshot) => {
+        return snapshot.ref.getDownloadURL()
+      })
+      .then((url) => {
+        this.saveImage(url)
+        this.setState({
+          image_url: url
+        })
+      })
+  }
+
   handleClick = () =>{
     axios({
       url: 'https://findit1.herokuapp.com/items/create',
       method: 'post',
       data: {
-          "user_id": '2',
+          "user_id": '1',
           "type_id": this.state.type.value ,
           "colour_id": this.state.color.value,
           "lost_location": this.state.location,
@@ -70,7 +106,7 @@ class FoundItemForm extends React.Component{
           "status": 'unclaimed', 
           "fedex_location": 'pending',
           "title": this.state.title, 
-          "img_url": 'https://tcprd-tdcdn.netdna-ssl.com/green-acrylic-green-london-tartan-scarf-240375-105-1600-0.jpg?id=SC240375' 
+          "img_url": this.state.image_url 
       }
     })
     .then((res)=>{
@@ -79,7 +115,7 @@ class FoundItemForm extends React.Component{
   }
 
   render(){
-    
+  
 
     return (
       <>
@@ -94,7 +130,7 @@ class FoundItemForm extends React.Component{
           </h1>
         </div>
         <div className="form-group ">
-          <label>Title</label>
+          <label>TITLE</label>
             <input type="text" className="form-control" placeholder="Description" onChange={this.handleInput}></input>
         </div>
         <div className="form-group">
@@ -137,6 +173,11 @@ class FoundItemForm extends React.Component{
         <div className="form-group">
           <label>DATE FOUND</label>
             <input type="email" className="form-control" placeholder="DD/MM/YY" onChange={this.handleDate} ></input>
+        </div>
+
+        <div className="form-group">
+          <label>UPLOAD AN IMAGE</label>
+            <input type="file" className="form-control" placeholder="" onChange={this.handleFileInput} ></input>
         </div>
 
         {/* NTH using Google's Places API */}
