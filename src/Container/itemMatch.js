@@ -2,7 +2,9 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import item from '../Context/item'
 import './Style/mainForm.css';
+import './Style/itemMatch.css';
 import Logo from '../Component/Image/findIt.jpg';
+import Confetti from 'react-confetti'
 
 class ItemMatch extends React.Component {
   constructor(props) {
@@ -24,12 +26,14 @@ class ItemMatch extends React.Component {
     console.log(1)
     this.props.history.push('/claimPage')
   }
+  
 
   render() {
     console.log(this.context[0])
     console.log(this.state.context.length)
     return (
       <div className="container">
+      
         <div style={{ paddingBottom: "30px" }}>
           <h1>Lost Item Matched
             <Link to="/">
@@ -40,7 +44,7 @@ class ItemMatch extends React.Component {
         {this.state.context.length < 1 ?
         <>
         <div>
-          <div>
+          <div className = "content">
   
           </div>
           <h4>Title: </h4>
@@ -67,30 +71,38 @@ class ItemMatch extends React.Component {
         </>
         :
         <>
-        <div>
-          <div>
-            <img style={{width: '300px'}}src={this.state.context[0].img_url} />
+        <div className = "content">
+          <div className= "img">
+            <img style={{width: '300px'}}src={this.state.context[0].img_url }  />
           </div>
-          <h4>Title: {this.state.context[0].title}</h4>
+          <div>
+          <h2>Title: {this.state.context[0].title}</h2>
         </div> 
+        <p>
         <div>
           <h4>Location Found: {this.state.context[0].lost_location}</h4>
         </div>
+        </p>
+        <p>
         <div>
           <h4>Date: {this.state.context[0].date}</h4>
         </div>
+        </p>
+        <p>
         <div>
           <h4>FedEx Pick-up Location: {this.state.context[0].fedex_location}</h4>
         </div>
-    
-        <div className="form-group">
-          
-        <button type="button" class="btn btn-danger" onClick={this.claim}>Claim Item</button>
-           
+        </p>
         </div>
-          </>
+       
+        <div className="form-group" style={{position: 'relative', zIndex: '9999'}}>
+          <button type="button" style={{position: 'relative', zIndex: '9999'}} className="btn btn-primary btn-lg btn-block" onClick={this.claim}>Claim Item</button>
+        </div>
+        </>
         }
-      </div>
+          <Confetti/>
+        </div>
+       
     )
   }
 }
