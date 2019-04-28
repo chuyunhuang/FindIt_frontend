@@ -21,7 +21,7 @@ const Home = (props) => {
         </button>
       </Link>
       <Link to="/found" className="right" style={{paddingLeft: '10px', paddingTop: '20px'}}>
-        <button class="btn btn-primary btn-lg">
+        <button className="btn btn-primary btn-lg">
           I FOUND SOMETHING
         </button>
       </Link>
