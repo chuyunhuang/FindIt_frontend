@@ -13,12 +13,12 @@
     "react-scripts": "3.0.0"
   },
   "scripts": {
-    "homepage" : "https://chuyunhuang.github.io/FindIt_frontend",
+    "homepage": "https://chuyunhuang.github.io/FindIt_frontend",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    “push”: “gh-pages -d build”
+    "push": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }
