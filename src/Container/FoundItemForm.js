@@ -193,10 +193,10 @@ class FoundItemForm extends React.Component{
         </div>
 
         {/* NTH using Google's Places API */}
-        <div className="form-group">
+        {/* <div className="form-group">
           <label>Search nearby Fedex Drop Off Location</label>
             <input type="email" className="form-control" placeholder="current location/zip code" ></input>
-        </div>
+        </div> */}
 
         <div className="form-group">
           <button type="button" className="btn btn-danger" onClick={this.handleClick}>Submit</button>
