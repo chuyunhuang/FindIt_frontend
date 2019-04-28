@@ -9,6 +9,7 @@ import ItemMatch from './Container/itemMatch';
 import ClaimAction from './Component/claimAction';
 import PickUp from './Container/pickUp';
 import FedExHub from './Container/HubLocation';
+import FounderHistory from './Container/FounderHistory';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path= "/claimPage" exact strict component ={ClaimAction} />
       <Route path= "/pickup" exact strict component={PickUp} />
       <Route path= "/fedexhub" exact strict component={FedExHub} />
+      <Route path="/founderhistory" exact strict component={FounderHistory} />
       </Switch>
     </HashRouter>
  
