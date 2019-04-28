@@ -1,30 +1,45 @@
 import React from 'react';
 import axios from 'axios';
-
+import History from '../Component/FounderHistory';
 
 
 class FounderHistory extends React.Component{
     constructor(props){
         super(props)
-        this.state ={
+        this.state = {
             data: []
         }
     }
 
 
     componentDidMount(){
-        axios.get('https://findit1.herokuapp.com/items/readAll')
-          .then((data)=>{
-              console.log(data)
-          })
-          .catch((error)=>{
-              console.log(error)
-          })
+        axios.get('https://findit1.herokuapp.com/items/read',{
+            params:{
+                "user_id": 1
+            }
+        })
+        .then((data)=>{
+            console.log(data)
+            this.setState({data: data.data})
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+          
     }
 
 
     render(){
-        return(<div><h1>Data</h1></div>)
+        const {data} = this.state
+        return(<div class="container">
+        <h1>Founder History</h1>
+        <div class="row">
+        <div class="col"><h3>Title</h3></div>
+        <div class="col"><h3>Date Posted</h3></div>
+        <div class="col"><h3>Status</h3></div>
+        <History data={data}/>
+        </div>
+      </div>)
     }
 }
 
