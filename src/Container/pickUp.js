@@ -4,6 +4,7 @@ import item from '../Context/item'
 class PickUp extends React.Component{
   constructor(props){
     super(props)
+
     this.state={
     context: []
     }
@@ -14,6 +15,7 @@ class PickUp extends React.Component{
   componentDidMount(){
     if(this.context.length > 0){
     this.setState({context: this.context})
+
     }
   }
 
