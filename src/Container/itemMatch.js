@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 import './Style/mainForm.css';
 import Logo from '../Component/Image/findIt.jpg';
 
@@ -18,7 +19,7 @@ class ItemMatch extends React.Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
 
   }
 
@@ -28,15 +29,15 @@ class ItemMatch extends React.Component {
         <div style={{ paddingBottom: "30px" }}>
           <h1>Lost Item Matched
             <Link to="/">
-              <img src={Logo} className="img-thumbnail float-right" style={{ width: '100px' }} alt=""/>
+              <img src={Logo} className="img-thumbnail float-right" style={{ width: '100px' }} alt="" />
             </Link>
           </h1>
         </div>
 
-        
+
         <div>
           <h4>Title: {this.state.title}</h4>
-        </div> 
+        </div>
         <div>
           <h4>Type: {this.state.type} </h4>
         </div>
@@ -52,17 +53,13 @@ class ItemMatch extends React.Component {
         <div>
           <h4>FedEx Pick-up Location: {this.state.fedex_pickup}</h4>
         </div>
-    
-        <div className="form-group">
-          <button type="button" class="btn btn-danger">Claim Item</button>
         </div>
-      
-       
-      </div>
-    )
-  }
-}
 
 
-
+        )
+      }
+    }
+    
+    
+    
 export default ItemMatch
