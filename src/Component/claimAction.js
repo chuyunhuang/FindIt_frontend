@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from './Image/findIt.jpg'
 
 
 const ClaimAction = (props) => {
