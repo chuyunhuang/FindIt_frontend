@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, Redirect } from 'react-router-dom';
+import item from '../Context/item'
 import './Style/mainForm.css';
 import Logo from '../Component/Image/findIt.jpg';
 
@@ -8,21 +8,26 @@ class ItemMatch extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      user_id: '1',
-      title: 'black bear',
-      type: 'toys',
-      color: 'black',
-      location: '10001',
-      date: '04/25/19',
-      fedex_pickup: '34th Street Penn',
+      context: []
     }
   }
 
-  componentDidMount(){
+  static contextType = item
 
+  componentDidMount(){
+    if(this.context.length > 0){
+    this.setState({context: this.context})
+    }
+  }
+
+  claim = () => {
+    console.log(1)
+    this.props.history.push('/claimPage')
   }
 
   render() {
+    console.log(this.context[0])
+    console.log(this.state.context.length)
     return (
       <div className="container">
         <div style={{ paddingBottom: "30px" }}>
@@ -32,32 +37,59 @@ class ItemMatch extends React.Component {
             </Link>
           </h1>
         </div>
-
-        
+        {this.state.context.length < 1 ?
+        <>
         <div>
-          <h4>Title: {this.state.title}</h4>
+          <div>
+  
+          </div>
+          <h4>Title: </h4>
         </div> 
         <div>
-          <h4>Type: {this.state.type} </h4>
+          <h4>Type: </h4>
         </div>
         <div>
-          <h4>Color: {this.state.color}</h4>
+          <h4>Color: </h4>
         </div>
         <div>
-          <h4>Location Found: {this.state.location}</h4>
+          <h4>Location Found: </h4>
         </div>
         <div>
-          <h4>Date: {this.state.date}</h4>
+          <h4>Date: </h4>
         </div>
         <div>
-          <h4>FedEx Pick-up Location: {this.state.fedex_pickup}</h4>
+          <h4>FedEx Pick-up Location: </h4>
         </div>
     
         <div className="form-group">
           <button type="button" class="btn btn-danger">Claim Item</button>
         </div>
-      
-       
+        </>
+        :
+        <>
+        <div>
+          <div>
+            <img style={{width: '300px'}}src={this.state.context[0].img_url} />
+          </div>
+          <h4>Title: {this.state.context[0].title}</h4>
+        </div> 
+        <div>
+          <h4>Location Found: {this.state.context[0].lost_location}</h4>
+        </div>
+        <div>
+          <h4>Date: {this.state.context[0].date}</h4>
+        </div>
+        <div>
+          <h4>FedEx Pick-up Location: {this.state.context[0].fedex_location}</h4>
+        </div>
+    
+        <div className="form-group">
+          
+        <button type="button" class="btn btn-danger" onClick={this.claim}>Claim Item</button>
+           
+        </div>
+          </>
+        }
       </div>
     )
   }

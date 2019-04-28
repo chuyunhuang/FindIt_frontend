@@ -90,7 +90,6 @@ class FoundItemForm extends React.Component{
         this.setState({
           image_url: url
         })
-        console.log('here', this.state.image)
       })
   }
 
@@ -116,8 +115,7 @@ class FoundItemForm extends React.Component{
   }
 
   render(){
-    
-    console.log('inside render', this.state.image_url)
+  
 
     return (
       <>
