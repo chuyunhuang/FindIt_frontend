@@ -16,7 +16,7 @@ ImageService.saveImage = (url, timestamp) => {
   const newImage = { url, timestamp };
   const oldImages = ImageService.getImages();
 
-  // oldImages.unshift(newImage);
+  oldImages.unshift(newImage);
 
   localStorage.setItem('images', JSON.stringify(oldImages));
   return oldImages;
