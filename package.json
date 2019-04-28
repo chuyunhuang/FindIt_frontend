@@ -12,8 +12,8 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0"
   },
+  "homepage": "https://chuyunhuang.github.io/FindIt_frontend",
   "scripts": {
-    "homepage": "https://chuyunhuang.github.io/FindIt_frontend",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
