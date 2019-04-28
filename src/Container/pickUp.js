@@ -1,11 +1,21 @@
 import React from 'react';
+import item from '../Context/item'
 
 class PickUp extends React.Component{
   constructor(props){
     super(props)
+
     this.state={
-      claim_id: '',
-      pickup_location: ''
+    context: []
+    }
+  }
+
+  static contextType = item
+
+  componentDidMount(){
+    if(this.context.length > 0){
+    this.setState({context: this.context})
+
     }
   }
 
@@ -13,9 +23,19 @@ class PickUp extends React.Component{
     return (
       
       <>
+      
     <div>
-      <h1 style={{textAlign: 'center', marginTop: '100px'}}>Claim ID: 1</h1>
-      <h2 style={{textAlign: 'center'}}>FedEx Pick-up Location: 34th Penn </h2>
+    {this.state.context.length < 1 ?
+    <>
+    <h1 style={{textAlign: 'center', marginTop: '100px'}}>Claim ID: </h1>
+    <h2 style={{textAlign: 'center'}}>FedEx Pick-up Location:</h2>
+    </>
+    :
+    <>
+      <h1 style={{textAlign: 'center', marginTop: '100px'}}>Claim ID: {this.state.context[0].id} </h1>
+      <h2 style={{textAlign: 'center'}}>FedEx Pick-up Location: {this.state.context[0].fedex_location} </h2>
+      </>
+    }
       <h4 style={{textAlign: 'center'}}>To claim your lost item, please bring a valid government issued photo ID.</h4>
     
       <div style={{textAlign: 'center', marginTop: '100px'}}>

@@ -19,7 +19,7 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state={
-        item: {}
+        item: []
       }
   }
 
@@ -28,7 +28,7 @@ class App extends React.Component {
   }
 
   render(){
-  console.log(this.state)
+
   return (
     <HashRouter>
       <Switch>

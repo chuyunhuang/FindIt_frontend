@@ -53,6 +53,19 @@ class FoundItemForm extends React.Component{
     })
   }
 
+
+  handleType = (e) =>{
+    this.setState({
+      type_id: e.target.value
+    })
+  }
+
+  handleColor = (e) =>{
+    this.setState({
+      color_id: e.target.value
+    })
+  }
+
   handleInput = (e) =>{
     this.setState({
       title: e.target.value
@@ -102,7 +115,7 @@ class FoundItemForm extends React.Component{
           "colour_id": this.state.color.value,
           "lost_location": this.state.location,
           "date": this.state.date,
-          "status": 'unclaimed', 
+          "status": 'Not claimed', 
           "fedex_location": 'pending',
           "title": this.state.title, 
           "img_url": this.state.image_url 
@@ -134,7 +147,7 @@ class FoundItemForm extends React.Component{
         </div>
         <div className="form-group">
           <label>TYPE</label>
-          <select id="inputState" className="form-control">
+          <select id="inputState" className="form-control" onChange={this.handleType}>
             <option>Choose...</option>
             {
               this.state.type.map((e, i)=>{
@@ -150,7 +163,7 @@ class FoundItemForm extends React.Component{
 
         <div className="form-group">
           <label>COLOR</label>
-          <select id="inputState" className="form-control">
+          <select id="inputState" className="form-control" onChange={this.handleColor}>
             <option>Choose...</option>
              {
                this.state.color.map((e, i)=>{
