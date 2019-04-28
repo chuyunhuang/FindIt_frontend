@@ -13,13 +13,8 @@ class FounderHistory extends React.Component{
 
 
     componentDidMount(){
-        axios.get('https://findit1.herokuapp.com/items/read',{
-            params:{
-                "user_id": 1
-            }
-        })
+        axios.get('https://findit1.herokuapp.com/items/readAll')
         .then((data)=>{
-            console.log(data)
             this.setState({data: data.data})
         })
         .catch((error)=>{
