@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
+import axios from 'axios';
 import './Style/mainForm.css';
 import Logo from '../Component/Image/findIt.jpg';
 import Img from '../Component/Image/girl.jpg';
@@ -16,6 +16,28 @@ class LostItemForm extends React.Component {
       date: '',
     }
   }
+
+
+  componentDidMount = () =>{
+    axios({
+      url: 'https://findit1.herokuapp.com/items/read/',
+      method: 'GET',
+      params:{
+        'type_id': 1,
+        'lost_location': 1,
+        'colour_id': 1,
+        'date': 1
+      }
+    }
+    )
+    .then((data)=>{
+      console.log(data)
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
+
 
   render() {
     return (
