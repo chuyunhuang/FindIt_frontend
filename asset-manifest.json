@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4a4bedde.chunk.css",
+    "main.js": "/static/js/main.7c8846ce.chunk.js",
+    "main.js.map": "/static/js/main.7c8846ce.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.22a7d4ef.chunk.css": "/static/css/2.22a7d4ef.chunk.css",
+    "static/js/2.cb1db2a1.chunk.js": "/static/js/2.cb1db2a1.chunk.js",
+    "static/js/2.cb1db2a1.chunk.js.map": "/static/js/2.cb1db2a1.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.782a806042d409fa0a984dde9050c41c.js": "/precache-manifest.782a806042d409fa0a984dde9050c41c.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.22a7d4ef.chunk.css.map": "/static/css/2.22a7d4ef.chunk.css.map",
+    "static/css/main.4a4bedde.chunk.css.map": "/static/css/main.4a4bedde.chunk.css.map",
+    "static/media/boy.jpg": "/static/media/boy.d737ce97.jpg",
+    "static/media/findIt.jpg": "/static/media/findIt.0c25c650.jpg",
+    "static/media/girl.jpg": "/static/media/girl.a6b56fcd.jpg",
+    "static/media/nyc.jpg": "/static/media/nyc.29be0563.jpg"
+  }
+}
