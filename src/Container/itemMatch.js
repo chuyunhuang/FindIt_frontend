@@ -8,12 +8,18 @@ class ItemMatch extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      user_id: '',
-      type: '',
-      color: '',
-      location: '',
-      date: '',
+      user_id: '1',
+      title: 'black bear',
+      type: 'toys',
+      color: 'black',
+      location: '10001',
+      date: '04/25/19',
+      fedex_pickup: '34th Street Penn',
     }
+  }
+
+  componentDidMount(){
+
   }
 
   render() {
@@ -22,35 +28,30 @@ class ItemMatch extends React.Component {
         <div style={{ paddingBottom: "30px" }}>
           <h1>Lost Item Matched
             <Link to="/">
-              <img src={Logo} className="img-thumbnail float-right" style={{ width: '100px' }} />
+              <img src={Logo} className="img-thumbnail float-right" style={{ width: '100px' }} alt=""/>
             </Link>
           </h1>
         </div>
-        <p>
+
+        
         <div>
-          <h4>Title: </h4>
-        </div>
-        </p>
-        <p>
+          <h4>Title: {this.state.title}</h4>
+        </div> 
         <div>
-          <h4>Type: </h4>
+          <h4>Type: {this.state.type} </h4>
         </div>
-        </p>
-        <p>
         <div>
-          <h4>Color: </h4>
+          <h4>Color: {this.state.color}</h4>
         </div>
-        </p>
-        <p>
         <div>
-          <h4>Location Found: </h4>
+          <h4>Location Found: {this.state.location}</h4>
         </div>
-        </p>
-        <p>
         <div>
-          <h4>FedEx Pick-up Location: </h4>
+          <h4>Date: {this.state.date}</h4>
         </div>
-        </p>
+        <div>
+          <h4>FedEx Pick-up Location: {this.state.fedex_pickup}</h4>
+        </div>
     
         <div className="form-group">
           <button type="button" class="btn btn-danger">Claim Item</button>

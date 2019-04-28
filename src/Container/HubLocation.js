@@ -10,9 +10,21 @@ class FedexHub extends React.Component {
             claimID: '',
         }
     }
-
-
-
+        componentDidMount(){
+            axios({
+                url: `https://findit1.herokuapp.com/items/read`,
+                method: 'GET',
+                params: {
+                    'colour_id': 3
+                }
+            })
+            .then((data)=>{
+                console.log(data)
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+        }
 
     render() {
         return (<>
@@ -24,7 +36,7 @@ class FedexHub extends React.Component {
                     </div>
 
                     <div class="form-group">
-                        <label>Password</label>
+                        <label>Address</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
                     </div>
 
@@ -43,3 +55,5 @@ class FedexHub extends React.Component {
             }
         
 }
+
+ export default FedexHub;

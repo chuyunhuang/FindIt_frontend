@@ -10,36 +10,57 @@ class LostItemForm extends React.Component {
     super(props)
     this.state = {
       user_id: '',
-      type: '',
-      color: '',
+      type: [],
+      color: [],
       location: '',
       date: '',
     }
   }
 
-
-  componentDidMount = () =>{
+  componentDidMount(){
     axios({
-      url: 'https://findit1.herokuapp.com/items/read/',
-      method: 'GET',
-      params:{
-        'type_id': 1,
-        'lost_location': 1,
-        'colour_id': 1,
-        'date': 1
-      }
-    }
-    )
-    .then((data)=>{
-      console.log(data)
+      url: 'https://findit1.herokuapp.com/type/read',
+      method: 'get'
     })
-    .catch((error)=>{
-      console.log(error)
+    .then((data)=>{
+      this.setState({
+        type: data.data.msg
+      })
+    axios({
+      url: 'https://findit1.herokuapp.com/colour/read',
+      method: 'get'
+    })
+    .then((data)=>{
+      this.setState({
+        color: data.data.msg
+      })
+    })
     })
   }
 
+  handleLocation = (e) =>{
+    this.setState({
+      location: e.target.value
+    })
+    console.log(e.target.value)
+  }
+
+  handleDate = (e) =>{
+    this.setState({
+      date: e.target.value
+    })
+    console.log(e.target.value)
+  }
+
+  handleClick = () =>{
+    axios({
+      
+      })
+  
+  }
 
   render() {
+    
     return (
 
       <>
@@ -48,46 +69,54 @@ class LostItemForm extends React.Component {
         <div style={{paddingBottom:"30px"}}>
           <h1>Lost Item Info
             <Link to="/">
-          <img src={Logo} className="img-thumbnail float-right" style={{width:'100px'}}/>
+          <img src={Logo} className="img-thumbnail float-right" style={{width:'100px'}} alt=""/>
           </Link>
           </h1>    
         </div>
         <div className="form-group">
-          <label for="inputState">TYPE</label>
+          <label>TYPE</label>
           <select id="inputState" className="form-control">
-            <option selected>Choose...</option>
-            <option>Black</option>
-            <option>Brown</option>
-            <option>Grey</option>
-            <option>White</option>
-            <option>None of the above</option>
+            <option>Choose...</option>
+            {
+              this.state.type.map((e, i)=>{
+                return (
+                  <option key={i} value={e.id}>
+                      {e.type}
+                  </option>
+                ) 
+              })
+            }
           </select>
         </div>
 
         <div className="form-group">
-          <label for="inputState">COLOR</label>
+          <label>COLOR</label>
           <select id="inputState" className="form-control">
-            <option selected>Choose...</option>
-            <option>Keys</option>
-            <option>Wallet</option>
-            <option>Clothing Accessories</option>
-            <option>Toys</option>
-            <option>Electronics</option>
+            <option>Choose...</option>
+            {
+               this.state.color.map((e, i)=>{
+                return ( 
+                  <option key={i} value={e.id}>
+                      {e.colour}
+                  </option>
+               )
+             })
+            }
           </select>
         </div>
 
         <div className="form-group">
-          <label for="inputEmail3">LOCATION</label>
-            <input type="email" className="form-control" placeholder="Zip Code" ></input>
+          <label>LOCATION</label>
+            <input type="email" className="form-control" placeholder="Zip Code" onChange={this.handleLocation}></input>
         </div>
 
         <div className="form-group">
-          <label for="inputEmail3">DATE LOST</label>
-            <input type="email" className="form-control" placeholder="DD/MM/YY" ></input>
+          <label>DATE LOST</label>
+            <input type="email" className="form-control" placeholder="DD/MM/YY" onChange={this.handleDate}></input>
           <div>Search query is 7-day history period</div>
         </div>
         <div className="form-group">
-          <button type="button" class="btn btn-danger">Submit</button>
+          <button type="button" className="btn btn-danger">Submit</button>
         </div>
        
         </form>
