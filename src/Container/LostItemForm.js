@@ -55,9 +55,19 @@ class LostItemForm extends React.Component {
 
   handleClick = () =>{
     axios({
-      
-      })
-  
+      url: 'https://findit1.herokuapp.com/items/read',
+      method: 'GET',
+      // headers: {
+      //   'Access-Control-Allow-Origin': '*',
+      // },
+      // data: {
+      //     'user_id': 1,
+      //     'type_id': 1,
+      //     'colour_id': 1,
+      // }
+  })
+  .then(data=>console.log(data.data))
+  .catch(console.log)
   }
 
   render() {
@@ -117,7 +127,7 @@ class LostItemForm extends React.Component {
           <div>Search query is 7-day history period</div>
         </div>
         <div className="form-group">
-          <button type="button" className="btn btn-danger">Submit</button>
+          <button type="button" className="btn btn-danger" onClick={this.handleClick}>Submit</button>
         </div>
        
         </form>
