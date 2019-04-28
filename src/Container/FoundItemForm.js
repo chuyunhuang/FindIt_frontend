@@ -86,7 +86,6 @@ class FoundItemForm extends React.Component{
         return snapshot.ref.getDownloadURL()
       })
       .then((url) => {
-        this.saveImage(url)
         this.setState({
           image_url: url
         })
